@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class runner {
+	
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int input = s.nextInt();
+		printKeypad(input);
+	}
+	public static String getOptions(int a)
+	{
+		if(a==2)
+		{
+			return "abc";
+		}
+		if(a==3)
+		{
+			return "def";
+
+		}
+		if(a==4)
+		{
+			return "ghi";
+		}
+		if(a==5)
+		{
+			return "jkl";
+		}
+		if(a==6)
+		{
+			return "mno";
+		}
+		if(a==7)
+		{
+			return "pqrs";
+		}
+		if(a==8)
+		{
+			return "tuv";
+		}
+		if(a==9)
+		{
+			return "wxyz";
+		}
+		else
+		return "";
+
+	}
+	public static void print(int input,String a)
+	{
+		if(input==0)
+		{
+			System.out.println(a);
+			return;
+		}
+		int lastDigit=input%10;
+		String lastDigitOptions=getOptions(lastDigit);
+		for(int i=0;i<lastDigitOptions.length();i++)
+		{
+			print(input/10,lastDigitOptions.charAt(i)+a);
+		}
+	}
+
+	public static void printKeypad(int input){
+
+		print(input,"");
+		
+		
+	}
+}
